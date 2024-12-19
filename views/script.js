@@ -18,7 +18,7 @@ if(navigator.geolocation){
     );
 }
 
-const map = L.map("map").setView([0,0],26)
+const map = L.map("map").setView([0,0],9)
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     // maxZoom: 19,
