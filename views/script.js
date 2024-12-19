@@ -26,7 +26,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const markers = {}
-setInterval(() => {
+// setInterval(() => {
 socket.on("receive-location", (data)=>{
     const {id, latitude, longitude} = data;
     let myPopup = `
@@ -52,7 +52,7 @@ socket.on("receive-location", (data)=>{
 
   
 })
-}, 1);
+// }, 1);
 socket.io("user-disconnected", (id) =>{
     if(markers[id]){
         map.removeLayer(markers[id]);
