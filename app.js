@@ -12,7 +12,7 @@ const io = socketio(server)
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "/views")));
-
+setInterval(() => {
 io.on("connection", function(socket){
   socket.on("send-location", function (data){
     console.log(`${{...data}}`)
@@ -24,7 +24,7 @@ io.on("connection", function(socket){
       
     })
 })
-
+}, 1);
 app.get("/", (req, res) => {
   res.render("index.ejs");
 })
