@@ -41,6 +41,8 @@ socket.on("receive-location", (data)=>{
     `;
     var customPopup = "<b>My office</b><br/><img src='http://netdna.webdesignerdepot.com/uploads/2014/05/workspace_06_previo.jpg' alt='maptime logo gif' width='150px'/>";
   
+
+
     map.setView([latitude, longitude]);
     if(markers[id]){
         markers[id].setLatLng([latitude,longitude])
