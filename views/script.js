@@ -41,14 +41,16 @@ socket.on("receive-location", (data)=>{
     `;
     var customPopup = "<b>My office</b><br/><img src='http://netdna.webdesignerdepot.com/uploads/2014/05/workspace_06_previo.jpg' alt='maptime logo gif' width='150px'/>";
   
+    setTimeout(() => {
+        map.setView([latitude, longitude]);
+        if(markers[id]){
+            markers[id].setLatLng([latitude,longitude])
+        }else{
+            markers[id]= L.marker([latitude,longitude]).addTo(map).bindPopup(myPopup)
+        }
+      }, 5000);
 
-
-    map.setView([latitude, longitude]);
-    if(markers[id]){
-        markers[id].setLatLng([latitude,longitude])
-    }else{
-        markers[id]= L.marker([latitude,longitude]).addTo(map).bindPopup(myPopup)
-    }
+  
 })
 
 socket.io("user-disconnected", (id) =>{
