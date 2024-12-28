@@ -1,9 +1,6 @@
-// const { name } = require("ejs");
-
 
 const socket = io();
 
-// import * as url from"file!./../image/facebook.png";
 if(navigator.geolocation){
     navigator.geolocation.watchPosition(
         (position) =>{
@@ -28,10 +25,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-
-
 const markers = {}
-
 
 function displayFormData() {
     // Get values from the form
@@ -86,6 +80,7 @@ socket.on("receive-location", (data)=>{
   
 })
 // }, 1);
+
 // socket.io("user-disconnected", (id) =>{
 //     if(markers[id]){
 //         map.removeLayer(markers[id]);
@@ -93,11 +88,11 @@ socket.on("receive-location", (data)=>{
 //     }
 // })
 
+module.exports = {
+    hello: function() {
+       return "Hello";
+    }
+ }
 
-// function getUserData(data){
-
-//     console.log(data)
-//     return data
-// }
 
 
